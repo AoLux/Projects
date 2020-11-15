@@ -1,0 +1,82 @@
+﻿@model IEnumerable<CarServices.Models.SerPerCar>
+
+@{
+    ViewBag.Title = "Overview";
+}
+
+    <h2>Pregled servisa po autu</h2>
+
+<p>
+    @Html.ActionLink("Unos novog servisa", "AddOrEdit", "Service")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id_car)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Car_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_service)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Service_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Priority)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Service_date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.id_car)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Car_name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.id_service)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Service_name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Priority)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Description)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Status)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Service_date)
+    </td>
+    @*<td>
+        <!-- Link za akciju uređivanja servisa -->
+        @Html.ActionLink("Uredi", "AddOrEdit", "Service", new { id = item.id_service })   |
+
+         <!-- Link za akciju brisanja -->
+        @Html.ActionLink("Izbriši", "Delete", "Service", new { id = item.id_service })
+       </td>*@
+</tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Povratak na početnu", "Index", "Service")
+
+</div>
